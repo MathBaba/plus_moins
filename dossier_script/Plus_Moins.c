@@ -5,24 +5,40 @@
 void plusMoins (int valeur_a_trouver)
 {
 
-int choix_joueur, compteur, tentatives, tentative;
+int choix_joueur, compteur, tentatives, mode;
+
 compteur = 0;
-tentatives = 6;
-tentative = 6;
+
+printf("Choississez votre mode de difficulté : 1 pour facile, 2 pour moyen, 3 pour difficile :");
+scanf ("%d", &mode);
+
+if (mode == 1)
+{
+    tentatives = 100;
+} else if (mode == 2)
+{
+    tentatives = 25;
+} else if (mode == 3){
+    tentatives = 10;
+} else {
+    printf ("Vous n'avez pas séléctionner une difficulté");
+}
+
+
 while (compteur < tentatives){
-        printf ("insérer une valeur, vous avez %d tentatives :\n", tentative);
+        printf ("insérer une valeur, vous avez %d tentatives :\n", tentatives);
         scanf ("%d", &choix_joueur);
     
                 if (choix_joueur < valeur_a_trouver)
                 {
                         printf ("plus\n");
                         compteur ++;
-                        tentative --;
+                        tentatives --;
                 } else if (choix_joueur > valeur_a_trouver)
                 {
                         printf ("moins\n");
                         compteur ++;
-                        tentative --;
+                        tentatives --;
                 } else 
                 {
                         printf ("bingo\n");
@@ -49,4 +65,4 @@ plusMoins (valeur_a_trouver);
 
 return 0;
 
-}
+}                
